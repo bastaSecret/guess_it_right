@@ -1,0 +1,174 @@
+@import url('https://fonts.googleapis.com/css2?family=Sixtyfour:SCAN@-31&display=swap');
+
+body {
+    background-color: #4F646F;
+}
+
+h1 {
+    font-size: 50px;
+    text-align: center;
+    font-family: Sixtyfour;
+    color: #1f1c1c; /*kulay ng text*/
+    margin-top: 150px; /*margin sa taas para bumaba ung text*/
+} /*sa title lang to, wag gamitin sa iba */
+
+.right-box {
+    height: 710px;
+    width: 700px;
+    /*para magcenter ung laman ng container*/
+    text-align: center;
+    align-items: center;
+    background-color: #d7ceeb; /*kulay ng background ng container*/
+    float: right;
+}
+
+.right-box button {
+    height: 50px;
+    width: 200px;
+    font-size: 20px;
+    text-align: center; /*position ng text sa loob ng button*/
+    color: #F4FAFF; /*kulay ng font nung button*/
+    background-color: #535657; /*kulay nung background ng button*/
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.left-box {
+    height: 710px;
+    width: 700px;
+    /*para magcenter ung laman ng container*/
+    text-align: center;
+    align-items: center;
+    float: left;
+}
+
+.popup {
+    width: 500px;
+    height: 500px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    background-color: #d7ceeb;
+    visibility: hidden;
+    border-color: none;
+}
+
+.open-popup {
+    visibility: visible;
+}
+
+.popup h2 {
+    font-size: 27px;
+    margin: 30px 0 10px;
+}
+
+.popup button {
+    /*button dun sa may rules pop up bago mag laro*/
+    height: 40px;
+    width: 60px;
+    font-size: 15px;
+    text-align: center; /*position ng text sa loob ng button*/
+    color: #F4FAFF; /*kulay ng font nung button*/
+    background-color: #535657; /*kulay nung background ng button*/
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+/*css para sa index or main page*/
+
+.main-left { 
+    height: 710px;
+    width: 700px;
+    /*para magcenter ung laman ng container*/
+    top: 50%;
+    left: 50%;
+    text-align: center;
+    float: left; 
+
+}
+
+.main-left h2 {
+    font-size: 30px;
+    text-align: center;
+    font-family: Sixtyfour;
+    color: #F4FAFF;
+}
+
+.main-left h3{
+    font-size: 25px;
+    font-style: bold;
+    color: #F4FAFF;
+}
+
+.main-center {
+    height: 710px;
+    width:  700px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    float: left; 
+    background-color: rgba(245, 245, 220, 0.822); /*sample lang muna to para makita, delete after*/
+}
+
+.content{
+    height: auto;
+    width: 700;
+    top: 50%;
+    left: 50%;
+    text-align: center;
+    font-size: 40px;
+}
+
+.user-input{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.user-input input {
+    width: 30px;
+    height: 35px;
+    margin: 2px;
+    border-radius: 5px;
+    font-size: 20px;
+    text-align: center;
+}
+
+.user-input button {
+    width: 50px;
+    height: 35px;
+    margin: 2px;
+    border-radius: 5px;
+    background-color: #e6e31d; /*background color ng button*/
+}
+
+.details {
+    font-size: 20px;
+}
+
+.details button {
+    height: 45px;
+    width: 300px;
+    font-size: 17px;
+    font-style: bold;
+}
+
+.keyboard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.keyboard button {
+    height: 40px;
+    width: 40px;
+    border-radius: 5px;
+    margin: 2px;
+    text-align: center;
+    background-color: #B7ADCF;
+}
