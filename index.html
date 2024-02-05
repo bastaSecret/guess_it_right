@@ -5,8 +5,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Guess it Right!</title>
         <link rel="stylesheet" href="style.css">
-        <script src="script/sample.js"></script>
         <script src="script/word-list.js"></script>
+        <script src="script/sample.js"></script>
     </head>
 
     <body>
@@ -25,12 +25,14 @@
                 <div class="user-input" id="user">
 
                     <div class="inputs">
-                        <input type="text">
-                        <input type="text">
-                        <input type="text">
-                        <input type="text">
-                        <input type="text">
-                        <input type="text">
+                        <ul class="word-display">
+                            <li class="letter"></li>
+                            <li class="letter"></li>
+                            <li class="letter-guessed">a</li>
+                            <li class="letter"></li>
+                            <li class="letter"></li>
+                            <li class="letter"></li>
+                        </ul>
                     </div>
 
                     <button type="button" onclick="chooseHint()">Hint</button>
@@ -47,7 +49,7 @@
 
                 <br>
                 
-                <div class="details">
+                <div class="details"> 
 
                     <p id="Questions" ></p>
                     <br>
