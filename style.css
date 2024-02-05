@@ -53,6 +53,7 @@ h1 {
     background-color: #d7ceeb;
     visibility: hidden;
     border-color: none;
+    box-shadow: 0 5px 5px #1f1c1c;
 }
 
 .open-popup {
@@ -146,6 +147,41 @@ h1 {
     border-radius: 5px;
     background-color: #e6e31d; /*background color ng button*/
 }
+
+/*popup para sa hint*/
+
+.userHint {
+    width: 500px;
+    height: 300px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    background-color: #d7ceeb;
+    visibility: hidden;
+    border-color: none;
+    box-shadow: 0 5px 7px #1f1c1c;
+}
+
+.openHint {
+    visibility: visible;
+}
+
+.userHint button{
+    width: 150px;
+    height: 45px;
+    margin: 2px;
+    border-radius: 5px;
+    background-color: #e6e31d;
+}
+
+.userHint p{
+    font-size: 30px;
+    margin-top: 60px;
+}
+
+/*end css para sa popup ng hint*/
 
 .details {
     font-size: 20px;
