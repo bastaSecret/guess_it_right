@@ -2,39 +2,53 @@
 
 body {
     background-color: #12031d;
-    display: flex;
+    
     overflow: hidden;
 }
 
 h1 {
-    font-size: 50px;
+    font-size: 70px;
     text-align: center;
     font-family: Sixtyfour;
     color: #e9cdc8; /*kulay ng text*/
-    margin-top: 150px; /*margin sa taas para bumaba ung text*/
+    margin-top: 240px; /*margin sa taas para bumaba ung text*/
+    text-shadow: 10px 10px 15px #520406;
+
 } /*sa title lang to, wag gamitin sa iba */
 
+.container {
+    display: flex;
+    width: fit-content;
+    height: fit-content;
+    align-items: center;
+    margin-top: 90px;
+    margin-left: 170px;
+    
+}
+
 .right-box {
-    height: auto;
-    width: auto;
+    height: 700px;
+    width: 700px;
     color: #e9cdc8;
     /*para magcenter ung laman ng container*/
     text-align: center;
     align-items: center;
-    background-color: #49233d; /*kulay ng background ng container*/
     padding: 5px;
+    margin-left: 100px;
+    margin-top: -140px;
     
 }
 
 .right-box button {
-    height: 50px;
-    width: 200px;
-    font-size: 20px;
+    height: 65px;
+    width: 230px;
+    font-size: 30px;
     text-align: center; /*position ng text sa loob ng button*/
     color: #e9cdc8; /*kulay ng font nung button*/
     background-color: #87060a; /*kulay nung background ng button*/
     border-radius: 20px;
     cursor: pointer;
+    box-shadow: 0 0 10px 5px #520406; /* glowing shadow effect */
 }
 
 .left-box img {
@@ -45,10 +59,32 @@ h1 {
     left: 50%;
     align-items: center;
 }
+.name {
+    display: flex;
+    font-size: 20px;
+    list-style: none;
+    text-align: center;
+    color: #e9cdc8;
+    align-items: center;
+    justify-content: center;
+    margin-top: -10px;
+    margin-right: 50px;
+}
+footer {
+    font-size: 20px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    color: #e9cdc8;
+}
+
+footer .name li {
+    margin-right: 10px; /* Adjust the value as needed */
+}
 
 .popup {
-    width: 500px;
-    height: 500px;
+    width: 650px;
+    height: 650px;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -57,7 +93,9 @@ h1 {
     background-color: #49233d;
     visibility: hidden;
     border-color: none;
-    box-shadow: 0 4px 5px #5f5c5c;
+    border-radius: 3px;
+    box-shadow: 0 3px 10px 5px #6b6b6bca; /* glowing shadow effect */
+
 }
 
 .open-popup {
@@ -86,11 +124,10 @@ h1 {
 /*css para sa index or main page*/
 
 .main-left { 
-    height: 710px;
+    height: 650px;
     width: 700px;
     /*para magcenter ung laman ng container*/
-    top: 50%;
-    left: 50%;
+    align-items: center;
     text-align: center;
     float: left; 
 }
@@ -118,9 +155,9 @@ h1 {
 }
 
 .main-right {
-    height: auto;
-    width:  700px;
     display: flex;
+    height: 700px;
+    width:  700px;
     align-items: center;
     justify-content: center;
     float: right; 
@@ -130,7 +167,7 @@ h1 {
 
 .content {
     height: auto;
-    width: 700;
+    width: 700px;
     top: 50%;
     left: 50%;
     text-align: center;
