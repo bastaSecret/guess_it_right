@@ -18,11 +18,13 @@ function closeHint() {
 //functions para sa interactive keyboard 
 
 //functions para sa questions
+
+
 function getRandomWord() {
     // Select a random word and question
     const { word, question } = wordList[Math.floor(Math.random() * wordList.length)];
     console.log(word);
     currentWord = word;
-    document.querySelector(".Questions b").innerText = question;
-    resetGame();
+    document.querySelector(".Questions").innerText = question;
+    
 }
