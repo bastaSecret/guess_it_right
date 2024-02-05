@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess it Right!</title>
+    <link rel="stylesheet" href="style.css">
+    <script src ="script/score.js"></script>
+    <script src ="script/sample.js"></script>
+    <script src ="script/word-list.js"></script>
+    </head>
+
+    <body>
+
+        <div class="left-box">
+            <img src="monster/mascot_logo.gif" alt="sample gif" style = "width: 700px; height: 700px; text-align: center; align-items: center; float: left;">  
+        </div>
+
+        <div class="right-box">
+            <h1>GUESS IT RIGHT!</h1>
+            <a href="index.html">
+            <button type="button" style="margin-top: 30px;">Start Game!</button></a>
+            <br>
+            <button type="submit" onclick="openPopup()" style="width: 120px; margin-top: 20px;">Rules</button> <!--button para mapakita ung rules-->
+            <br>
+            <br>
+            <br>
+            <br>
+            <p><b>IT223</b></p>
+            <p>Arbolado, Carlos</p>
+            <p>Bumatay, Jules</p>
+            <p>Cabubas, Dexter</p>
+            <p>Cadiz, Ralph</p>
+            <p>Malabanan, Gabrielle</p>
+
+            <div class="popup" id="popup">
+                <h2>Rules</h2>
+                <p>insert rules here!</p>
+                <button type="button" onclick="closePopup()">Close</button> <!--button para mapunta sa main page ng laro-->
+            </div>
+
+        </div>
+
+        
+        
+        <script> 
+        
+            let rules = document.getElementById("popup");
+
+                function openPopup() {
+                    popup.classList.add("open-popup");
+                }
+
+                function closePopup() {
+                    popup.classList.remove("open-popup");
+                }
+                
+        </script>
+        
+    </body>
+</html>

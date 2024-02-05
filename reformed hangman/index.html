@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Guess it Right!</title>
+        <link rel="stylesheet" href="style.css">
+        <script src="script/word-list.js" defer></script>
+        <script src="script/sample.js" defer></script>
+        <script src ="script/score.js"></script>
+    </head>
+
+    <body>
+
+        <div class="main-left">
+            <h2>Guess it Right!</h2>
+            <h3 id="points">Points: 0</h3>
+            <img src="monster_game/pic-0.png" alt="cube monster">
+        </div>
+        <div class="main-center">
+            <div class="content"> 
+                <div class="user-input" id="user">
+                    <div class="inputs">
+                        <ul class="word-display">
+                        </ul>
+                    </div>
+
+                    <button type="button" onclick="chooseHint()">Hint</button>
+
+                    <div class="userHint" id="userHint">
+                        <p>Choose what type of letter you want to reveal:</p>
+                        <button type="button" onclick="">Vowels</button>
+                        <button type="button" onclick="">Consonant</button>
+                        <br>
+                        <button type="button" onclick="closeHint()">Close</button>
+                    </div>
+
+                </div>
+
+                <br>
+                
+                <div class="details">
+                    <h3 class="question-text">
+                        <b>Lorem</b>
+                    </h3> 
+                    <br>
+                    <h3 class="guess-text">
+                        Incorrect Guesses:
+                        <b>0 / 3</b>
+                    </h3>
+                    <br>
+                    <br>
+                    <div class="keyboard">
+                        <div class="row">
+                            <button class="keys" onclick="handleButtonClick(this)">Q</button>
+                            <button class="keys" onclick="handleButtonClick(this)">W</button>
+                            <button class="keys" onclick="handleButtonClick(this)">E</button>
+                            <button class="keys" onclick="handleButtonClick(this)">R</button>
+                            <button class="keys" onclick="handleButtonClick(this)">T</button>
+                            <button class="keys" onclick="handleButtonClick(this)">Y</button>
+                            <button class="keys" onclick="handleButtonClick(this)">U</button>
+                            <button class="keys" onclick="handleButtonClick(this)">I</button>
+                            <button class="keys" onclick="handleButtonClick(this)">O</button>
+                            <button class="keys" onclick="handleButtonClick(this)">P</button>
+                        </div>
+
+                        <div class="row">
+                            <button class="keys" onclick="handleButtonClick(this)">A</button>
+                            <button class="keys" onclick="handleButtonClick(this)">S</button>
+                            <button class="keys" onclick="handleButtonClick(this)">D</button>
+                            <button class="keys" onclick="handleButtonClick(this)">F</button>
+                            <button class="keys" onclick="handleButtonClick(this)">G</button>
+                            <button class="keys" onclick="handleButtonClick(this)">H</button>
+                            <button class="keys" onclick="handleButtonClick(this)">J</button>
+                            <button class="keys" onclick="handleButtonClick(this)">K</button>
+                            <button class="keys" onclick="handleButtonClick(this)">L</button>
+                        </div>
+
+                        <div class="row">
+                            <button class="keys" onclick="handleButtonClick(this)">Z</button>
+                            <button class="keys" onclick="handleButtonClick(this)">X</button>
+                            <button class="keys" onclick="handleButtonClick(this)">C</button>
+                            <button class="keys" onclick="handleButtonClick(this)">V</button>
+                            <button class="keys" onclick="handleButtonClick(this)">B</button>
+                            <button class="keys" onclick="handleButtonClick(this)">N</button>
+                            <button class="keys" onclick="handleButtonClick(this)">M</button>
+                        </div>
+
+                        <div class="row">
+                            
+                        </div>
+
+                    </div>
+
+                </div>
+                    
+            </div>
+        </div>
+
+    </body>
+</html>
