@@ -3,6 +3,7 @@
 body {
     background-color: #12031d;
     display: flex;
+    overflow: hidden;
 }
 
 h1 {
@@ -14,15 +15,15 @@ h1 {
 } /*sa title lang to, wag gamitin sa iba */
 
 .right-box {
-    height: 710px;
-    width: 700px;
+    height: auto;
+    width: auto;
     color: #e9cdc8;
-    margin-left: 60px;
     /*para magcenter ung laman ng container*/
     text-align: center;
     align-items: center;
     background-color: #49233d; /*kulay ng background ng container*/
-    float: right;
+    padding: 5px;
+    
 }
 
 .right-box button {
@@ -116,14 +117,13 @@ h1 {
     color: #F4FAFF;
 }
 
-.main-center {
-    height: 710px;
+.main-right {
+    height: auto;
     width:  700px;
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 100vh;
-    float: left; 
+    float: right; 
     background-color: #49233d;
     color: #e9cdc8;
 }
