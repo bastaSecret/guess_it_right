@@ -10,15 +10,15 @@
     <body>
 
         <div class="left-box">
-            <img src="sample.gif" alt="sample gif">  
+            <img src="monster/mascot_logo.gif" alt="sample gif" style = "width: 700px; height: 700px; text-align: center; align-items: center; float: left;">  
         </div>
 
         <div class="right-box">
             <h1>GUESS IT RIGHT!</h1>
             <a href="index.html">
-            <button type="button" class="btn" style="margin-top: 30px;">Start Game!</button></a>
+            <button type="button" style="margin-top: 30px;">Start Game!</button></a>
             <br>
-            <button type="submit" class="btn" onclick="openPopup()" style="width: 120px; margin-top: 20px;">Rules</button> <!--button para mapakita ung rules-->
+            <button type="submit" onclick="openPopup()" style="width: 120px; margin-top: 20px;">Rules</button> <!--button para mapakita ung rules-->
             <br>
             <br>
             <br>
@@ -33,12 +33,12 @@
             <div class="popup" id="popup">
                 <h2>Rules</h2>
                 <p>insert rules here!</p>
-                <button type="button" class="btn" onclick="closePopup()">Close</button> <!--button para mapunta sa main page ng laro-->
+                <button type="button" onclick="closePopup()">Close</button> <!--button para mapunta sa main page ng laro-->
             </div>
 
         </div>
 
-        <!--insert js na pag tapos pindutin ung start game may pop-up ng mga rules-->
+        
         
         <script> 
         
@@ -51,7 +51,7 @@
                 function closePopup() {
                     popup.classList.remove("open-popup");
                 }
-        
+                
         </script>
         
     </body>
