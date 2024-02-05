@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hangaroo</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body> 
+    <header>
+        <h1 class="game-title">Round 1</h1>
+    </header>
+
+    <div id="overlay">
+        <h1 class="start-message">Tap anywhere to start</h1>
+    </div>
+
+
+    <section class="categories-section">
+        <div class="categories-container">
+            <h2 class="category" id="category"></h2>
+        </div>
+    </section>
+    
+    <section class="answers-section">
+        <div class="answers-container" id="answers-container">
+        </div>
+        
+        
+    </section>
+
+    <section class="main-content">
+        <div class="letters-container">
+            <div class="keyboard-row">
+                <button class="letter-btn" id="letter1" value="a">a</button>
+                <button class="letter-btn" id="letter2" value="b">b</button>
+                <button class="letter-btn" id="letter3" value="c">c</button>
+                <button class="letter-btn" id="letter4" value="d">d</button>
+                <button class="letter-btn" id="letter5" value="e">e</button>
+                <button class="letter-btn" id="letter6" value="f">f</button>
+                <button class="letter-btn" id="letter7" value="g">g</button>
+                <button class="letter-btn" id="letter8" value="h">h</button>
+                <button class="letter-btn" id="letter9" value="i">i</button>
+                <button class="letter-btn" id="letter10" value="j">j</button>
+                <button class="letter-btn" id="letter11" value="k">k</button>
+                <button class="letter-btn" id="letter12" value="l">l</button>
+                <button class="letter-btn" id="letter13" value="m">m</button>
+            </div>
+            <div class="keyboard-row">
+                
+                
+                <button class="letter-btn" id="letter14" value="n">n</button>
+                <button class="letter-btn" id="letter15" value="o">o</button>
+                <button class="letter-btn" id="letter16" value="p">p</button>
+                <button class="letter-btn" id="letter17" value="q">q</button>
+                <button class="letter-btn" id="letter18" value="r">r</button>
+                <button class="letter-btn" id="letter19" value="s">s</button>
+                <button class="letter-btn" id="letter20" value="t">t</button>
+                <button class="letter-btn" id="letter21" value="u">u</button>
+                <button class="letter-btn" id="letter22" value="v">v</button>
+                <button class="letter-btn" id="letter23" value="w">w</button>
+                <button class="letter-btn" id="letter24" value="x">x</button>
+                <button class="letter-btn" id="letter25" value="y">y</button>
+                <button class="letter-btn" id="letter26" value="z">z</button>
+            </div>
+        </div>
+    </section>
+    
+    
+
+    <section class="status" id="status">
+        <div class="life" id="life">
+            <div class="error">X</div>
+            <div class="error">X</div>
+            <div class="error">X</div>
+        </div>
+        <section class="reset-section">
+            <button id="reset-button">Reset Game</button>
+        </section>
+    </section>
+
+
+
+    <section class="game-section">
+        <button id="clue-button">Hint</button>
+        <div class="score" id="score">
+            <span>Points: 0</span>
+        </div>
+    </section>
+    
+
+
+    <script src="./js/main.js"></script>
+</body>
+</html>
