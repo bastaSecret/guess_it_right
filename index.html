@@ -11,93 +11,97 @@
 
     <body>
 
-        <div class="main-left">
+        <div class="container">
 
-            <h2>Guess it Right!</h2>
-            <h3>Points: 30</h3>
-            <img src="monster/first.png" alt="cube monster">
+            <div class="main-left">
 
-        </div>
+                <h2>Guess it Right!</h2>
+                <h3>Points: 30</h3>
+                <img src="monster/first.png" alt="cube monster">
 
-        <div class="main-right">
-            <div class="content">
-                <p>Stage _</p> 
-                <div class="user-input" id="user">
-
-                    <div class="inputs">
-                        <ul class="word-display">
-                            <li class="letter"></li>
-                            <li class="letter"></li>
-                            <li class="letter-guessed">a</li>
-                            <li class="letter"></li>
-                            <li class="letter"></li>
-                            <li class="letter"></li>
-                        </ul>
-                    </div>
-
-                    <button type="button" onclick="chooseHint()">Hint</button>
-
-                    <div class="userHint" id="userHint">
-                        <p>Choose what type of letter you want to reveal:</p>
-                        <button type="button" onclick="">Vowels</button>
-                        <button type="button" onclick="">Consonant</button>
-                        <br>
-                        <button type="button" onclick="closeHint()">Close</button>
-                    </div>
-
-                </div>
-
-                <br>
-                
-                <div class="details"> 
-
-                    <p id="Questions" ></p>
-                    <br>
-                    <p>Guesses Remaining: 3</p>
-                    <br>
-                    <br>
-                    <div class="keyboard">
-
-                        <div class="row">
-                            <button class="keys">Q</button>
-                            <button class="keys">W</button>
-                            <button class="keys">E</button>
-                            <button class="keys">R</button>
-                            <button class="keys">T</button>
-                            <button class="keys">Y</button>
-                            <button class="keys">U</button>
-                            <button class="keys">I</button>
-                            <button class="keys">O</button>
-                            <button class="keys">P</button>
-                        </div>
-
-                        <div class="row">
-                            <button class="keys">A</button>
-                            <button class="keys">S</button>
-                            <button class="keys">D</button>
-                            <button class="keys">F</button>
-                            <button class="keys">G</button>
-                            <button class="keys">H</button>
-                            <button class="keys">J</button>
-                            <button class="keys">K</button>
-                            <button class="keys">L</button>
-                        </div>
-
-                        <div class="row">
-                            <button class="keys">Z</button>
-                            <button class="keys">X</button>
-                            <button class="keys">C</button>
-                            <button class="keys">V</button>
-                            <button class="keys">B</button>
-                            <button class="keys">N</button>
-                            <button class="keys">M</button>
-                        </div>
-
-                    </div>
-
-                </div>
-                    
             </div>
+
+            <div class="main-right">
+                <div class="content">
+                    <p>Stage _</p> 
+                    <div class="user-input" id="user">
+
+                        <div class="inputs">
+                            <ul class="word-display">
+                                <li class="letter"></li>
+                                <li class="letter"></li>
+                                <li class="letter-guessed">a</li>
+                                <li class="letter"></li>
+                                <li class="letter"></li>
+                                <li class="letter"></li>
+                            </ul>
+                        </div>
+
+                        <button type="button" onclick="chooseHint()">Hint</button>
+
+                        <div class="userHint" id="userHint">
+                            <p>Choose what type of letter you want to reveal:</p>
+                            <button type="button" onclick="">Vowels</button>
+                            <button type="button" onclick="">Consonant</button>
+                            <br>
+                            <button type="button" onclick="closeHint()">Close</button>
+                        </div>
+
+                    </div>
+
+                    <br>
+                    
+                    <div class="details"> 
+
+                        <p id="Questions" ></p>
+                        <br>
+                        <p>Guesses Remaining: 3</p>
+                        <br>
+                        <br>
+                        <div class="keyboard">
+
+                            <div class="row">
+                                <button class="keys">Q</button>
+                                <button class="keys">W</button>
+                                <button class="keys">E</button>
+                                <button class="keys">R</button>
+                                <button class="keys">T</button>
+                                <button class="keys">Y</button>
+                                <button class="keys">U</button>
+                                <button class="keys">I</button>
+                                <button class="keys">O</button>
+                                <button class="keys">P</button>
+                            </div>
+
+                            <div class="row">
+                                <button class="keys">A</button>
+                                <button class="keys">S</button>
+                                <button class="keys">D</button>
+                                <button class="keys">F</button>
+                                <button class="keys">G</button>
+                                <button class="keys">H</button>
+                                <button class="keys">J</button>
+                                <button class="keys">K</button>
+                                <button class="keys">L</button>
+                            </div>
+
+                            <div class="row">
+                                <button class="keys">Z</button>
+                                <button class="keys">X</button>
+                                <button class="keys">C</button>
+                                <button class="keys">V</button>
+                                <button class="keys">B</button>
+                                <button class="keys">N</button>
+                                <button class="keys">M</button>
+                            </div>
+
+                        </div>
+
+                    </div>
+                        
+                </div>
+            </div>
+
         </div>
 
     </body>
