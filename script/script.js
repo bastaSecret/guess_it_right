@@ -1,166 +1,197 @@
-function createButton(letter) {
-    const button = document.createElement("button");
-    button.innerText = letter;
-    button.addEventListener("click", () => initGame(button, letter));
-    return button;
+///// FIXED NOT MOVING QUESTIONS:
+
+// open hint box
+let hint = document.getElementById("userHint");
+
+function chooseHint() {
+    const pointsElement = document.getElementById("points");
+
+    if (score >= 25) {
+        // Deduct 25 points for using the hint
+        score -= 25;
+        updatePoints(); // Update the points display
+        // Show the hint options
+        userHint.classList.add("openHint");
+    } else {
+        alert("You need at least 25 points to use the hint feature.");
+    }
 }
- 
-function resetGame() {
-    // Reset game
-    correctLetters = [];
-    wrongGuessCount = 0;
-    hangmanImage.src = `hangman/pic-${wrongGuessCount}.png`;
-    guessesText.innerText = `${wrongGuessCount} / ${maxGuesses}`;
+
+function closeHint() {
+    userHint.classList.remove("openHint");
+}
+
+
+
+const keyboardDiv = document.querySelector(".keyboard");
+const wordDisplay = document.querySelector(".word-display");
+const guessText = document.querySelector(".guess-text b");
+const monsterImage = document.querySelector(".main-left img");
+const gameModal = document.querySelector(".game-modal");
+const playAgainBtn = document.querySelector(".play-again");
+
+let currentWord, correctLetter, points;
+const maxGuesses = 3;
+const pointPerCorrectAnswer = 30;
+let score = 0;
+let currentIndex = 0;
+let wrongGuessCount = 0;
+
+
+
+const resetGame = () => {
+    correctLetter = [];
+    monsterImage.src = `monster_game/pic-${wrongGuessCount}.png`;
+    guessText.innerText = `${wrongGuessCount} / ${maxGuesses}`;
     keyboardDiv.querySelectorAll("button").forEach(btn => btn.disabled = false);
     wordDisplay.innerHTML = currentWord.split("").map(() => `<li class="letter"></li>`).join("");
     gameModal.classList.remove("show");
 }
- 
-function getRandomWord() {
-    // Select a random word and question
-    const { word, question } = wordList[Math.floor(Math.random() * wordList.length)];
-    console.log(word);
+const getRandomWord = () => {
+    const { question, word } = progressiveQuestions[currentIndex]; // Always use the first element
     currentWord = word;
-    document.querySelector(".Questionst b").innerText = question;
+    console.log(word);
+    document.querySelector(".question-text b").innerText = question;
     resetGame();
 }
- 
-function gameOver(isVictory) {
+const updatePoints = () => {
+    const pointsElement = document.getElementById("points");
+    if (pointsElement) {
+        if (correctLetter.length === new Set([...currentWord.toLowerCase()]).size) {
+            score += pointPerCorrectAnswer;
+            pointsElement.innerText = `Points: ${score}`;
+            if (currentIndex < progressiveQuestions.length - 1) {
+                currentIndex++;
+            }
+        }  else if (wrongGuessCount === maxGuesses) {
+            score = 0; // Reset the score to 0 on failure
+            pointsElement.innerText = `Points: ${score}`;
+            currentIndex = 0; // Reset to index 0 on failure
+        }
+    } else {
+        console.error("Error: Element with ID 'points' not found.");
+    }
+}
+
+const gameOver = (isVictory) => {
     setTimeout(() => {
+        if (!isVictory || wrongGuessCount === maxGuesses) {
+            currentIndex = 0; // Reset to index 0 on failure
+            score = 0;
+            wrongGuessCount = 0;
+            updatePoints();
+        }
         const modalText = isVictory ? `You found the word:` : `The correct word was:`;
-        gameModal.querySelector("img").src = `gege/${isVictory ? 'victory' : 'lost'}.pn`;
-        gameModal.querySelector("h4").innerText = `${isVictory ? 'Congratulations!' : 'Game Over'}.pn`;
+        gameModal.querySelector("img").src = `sample/${isVictory ? 'sample' : 'sample'}.gif`;
+        gameModal.querySelector("h4").innerText = `${isVictory ? 'Congrats!' : 'Game Over!'}`;
         gameModal.querySelector("p").innerHTML = `${modalText} <b>${currentWord}</b>`;
         gameModal.classList.add("show");
     }, 300);
 }
- 
-function initGame(button, clickedLetter) {
-    // check code if clickedletter exists on the currentWord
-    const lowerClickedLetter = clickedLetter.toLowerCase();
-    const lowerCurrentWord = currentWord.toLowerCase();
- 
-    if (lowerCurrentWord.includes(lowerClickedLetter)) {
-        // show correct word
-        [...lowerCurrentWord].forEach((letter, index) => {
-            if (letter === lowerClickedLetter) {
-                correctLetters.push(letter);
+
+
+const initGame = (button, clickedLetter) => {
+    const lowerclickedLetter = clickedLetter.toLowerCase();
+    const lowercurrentWord = currentWord.toLowerCase();
+
+    button.disabled = true; // Disable the button for any clicked letter
+
+    if (lowercurrentWord.includes(lowerclickedLetter)) {
+        [...lowercurrentWord].forEach((letter, index) => {
+            if (letter === lowerclickedLetter) {
+                correctLetter.push(letter);
                 wordDisplay.querySelectorAll("li")[index].innerText = letter;
                 wordDisplay.querySelectorAll("li")[index].classList.add("guessed");
             }
         });
+        updatePoints();
     } else {
-        // if user is wrong, update guess and img
         wrongGuessCount++;
-        hangmanImage.src = `hangman/pic-${wrongGuessCount}.png`;
+        monsterImage.src = `monster_game/pic-${wrongGuessCount}.png`;
     }
-    button.disabled = true;
-    guessesText.innerText = `${wrongGuessCount} / ${maxGuesses}`;
- 
-    // gameOver Functions
+    guessText.innerText = `${wrongGuessCount} / ${maxGuesses}`;
+
     if (wrongGuessCount === maxGuesses) return gameOver(false);
-    if (correctLetters.length === currentWord.length) return gameOver(true);
+    if (correctLetter.length === lowercurrentWord.length) return gameOver(true);
 }
- 
-function setupHangarooGame() {
-    const hangmanImage = document.querySelector(".hangaroo-box img");
-    const wordDisplay = document.querySelector(".word-display");
-    const guessesText = document.querySelector(".guesses-text b");
-    const keyboardDiv = document.querySelector(".keyboard");
-    const gameModal = document.querySelector(".game-modal");
-    const playAgainBtn = document.querySelector(".play-again");
-    const difficultyButtons = document.querySelectorAll(".difficulty-button");
- 
-    function createButton(letter) {
-        const button = document.createElement("button");
-        button.innerText = letter;
-        button.addEventListener("click", () => initGame(button, letter));
-        return button;
-    }
- 
-    let currentWord, correctLetters = [], wrongGuessCount;
-    let currentDifficulty = "easy"; // Default difficulty
-    const maxGuesses = 3;
- 
-    const difficultyQuestions = {
-        easy: easyQuestions,
-        medium: mediumQuestions,
-        hard: hardQuestions
-        // Add more difficulty levels if needed
-    };
- 
-    function resetGame() {
-        // Reset game
-        correctLetters = [];
-        wrongGuessCount = 0;
-        hangmanImage.src = `hangman/pic-${wrongGuessCount}.png`;
-        guessesText.innerText = `${wrongGuessCount} / ${maxGuesses}`;
-        keyboardDiv.querySelectorAll("button").forEach(btn => btn.disabled = false);
-        wordDisplay.innerHTML = currentWord.split("").map(() => `<li class="letter"></li>`).join("");
-        gameModal.classList.remove("show");
-    }
- 
-    function getRandomWord() {
-        // Select a random word and question based on difficulty
-        const { word, question } = difficultyQuestions[currentDifficulty][Math.floor(Math.random() * difficultyQuestions[currentDifficulty].length)];
-        console.log(word);
-        currentWord = word;
-        document.querySelector(".question-text b").innerText = question;
-        resetGame();
-    }
- 
-    function gameOver(isVictory) {
-        setTimeout(() => {
-            const modalText = isVictory ? `You found the word:` : `The correct word was:`;
-            gameModal.querySelector("img").src = `gege/${isVictory ? 'victory' : 'lost'}.png`;
-            gameModal.querySelector("h4").innerText = `${isVictory ? 'Congratulations!' : 'Game Over.'}.`;
-            gameModal.querySelector("p").innerHTML = `${modalText} <b>${currentWord}</b>`;
-            gameModal.classList.add("show");
-        }, 300);
-    }
- 
-    function initGame(button, clickedLetter) {
-        // check code if clickedletter exists on the currentWord
-        const lowerClickedLetter = clickedLetter.toLowerCase();
-        const lowerCurrentWord = currentWord.toLowerCase();
- 
-        if (lowerCurrentWord.includes(lowerClickedLetter)) {
-            // show correct word
-            [...lowerCurrentWord].forEach((letter, index) => {
-                if (letter === lowerClickedLetter) {
-                    correctLetters.push(letter);
-                    wordDisplay.querySelectorAll("li")[index].innerText = letter;
-                    wordDisplay.querySelectorAll("li")[index].classList.add("guessed");
-                }
-            });
-        } else {
-            // if user is wrong, update guess and img
-            wrongGuessCount++;
-            hangmanImage.src = `hangman/pic-${wrongGuessCount}.png`;
+
+
+function revealLetter(letter) {
+    let wordLetters = currentWord.toLowerCase().split('');
+    wordLetters.forEach((char, index) => {
+        if (char === letter) {
+            let letterElement = wordDisplay.querySelectorAll('.letter')[index];
+            letterElement.innerText = letter.toUpperCase();
+            letterElement.classList.add('guessed');
+            correctLetter.push(letter); // Add the revealed letter to correctLetter array
+            // Disable the corresponding keyboard button
+            let buttonIndex = letter.charCodeAt(0) - 97; // Convert letter to button index
+            let keyboardButton = keyboardDiv.querySelectorAll('button')[buttonIndex];
+            keyboardButton.disabled = true;
         }
-        button.disabled = true;
-        guessesText.innerText = `${wrongGuessCount} / ${maxGuesses}`;
- 
-        // gameOver Functions
-        if (wrongGuessCount === maxGuesses) return gameOver(false);
-        if (correctLetters.length === currentWord.length) return gameOver(true);
-    }
- 
-    // Dynamic keyboard
-    for (let i = 97; i <= 122; i++) {
-        const button = createButton(String.fromCharCode(i));
-        keyboardDiv.appendChild(button);
-    }
-    difficultyButtons.forEach(button => {
-        button.addEventListener("click", () => {
-            currentDifficulty = button.dataset.difficulty;
-            getRandomWord();
-        });
     });
- 
-    getRandomWord();
-    playAgainBtn.addEventListener("click", getRandomWord);
+
+    closeHint(); // Close the hint box after revealing the letter
+
+    // Check for the next question
+    if (correctLetter.length === wordLetters.length) {
+        // All letters are guessed, move to the next question
+        updatePoints();
+        getRandomWord();
+    }
 }
- 
-// Call the function to set up the Hangaroo game
-setupHangarooGame();
+
+
+for (let i = 97; i <= 122; i++) {
+    const button = document.createElement("button");
+    button.innerText = String.fromCharCode(i);
+    keyboardDiv.appendChild(button);
+    button.addEventListener("click", e => initGame(e.target, String.fromCharCode(i)));
+}
+
+getRandomWord();
+playAgainBtn.addEventListener("click", getRandomWord);
+
+function getRemainingLetters() {
+    let wordLetters = currentWord.toLowerCase().split('');
+    let revealedLetters = wordDisplay.querySelectorAll('.guessed');
+    let revealedLettersArray = Array.from(revealedLetters).map(letter => letter.innerText.toLowerCase());
+    let remainingLetters = wordLetters.filter(letter => !revealedLettersArray.includes(letter));
+    return remainingLetters;
+}
+
+function revealVowel() {
+    let vowels = ['a', 'e', 'i', 'o', 'u'];
+    let remainingLetters = getRemainingLetters();
+
+    // Filter out vowels from remainingLetters
+    let remainingVowels = remainingLetters.filter(letter => vowels.includes(letter));
+
+    const pointsElement = document.getElementById("points");
+
+    if (remainingVowels.length > 0) {
+        let randomIndex = Math.floor(Math.random() * remainingVowels.length);
+        let letterToReveal = remainingVowels[randomIndex];
+        revealLetter(letterToReveal);
+        closeHint(); // Close the hint box after revealing the letter
+        updatePoints(); // Call updatePoints after revealing a letter
+    }
+}
+
+function revealConsonant() {
+    let consonants = 'bcdfghjklmnpqrstvwxyz'.split('');
+    let remainingLetters = getRemainingLetters();
+
+    // Filter out consonants from remainingLetters
+    let remainingConsonants = remainingLetters.filter(letter => consonants.includes(letter));
+
+    const pointsElement = document.getElementById("points");
+
+    if (remainingConsonants.length > 0) {
+        let randomIndex = Math.floor(Math.random() * remainingConsonants.length);
+        let letterToReveal = remainingConsonants[randomIndex];
+        revealLetter(letterToReveal);
+        closeHint(); // Close the hint box after revealing the letter
+        updatePoints(); // Call updatePoints after revealing a letter
+    }
+}
